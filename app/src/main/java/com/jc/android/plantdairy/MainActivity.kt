@@ -1,5 +1,6 @@
 package com.jc.android.plantdairy
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -10,6 +11,7 @@ import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
 import com.jc.android.plantdairy.adapter.ItemAdapter
 import com.jc.android.plantdairy.databinding.ActivityMainBinding
+import java.text.FieldPosition
 
 class MainActivity : AppCompatActivity() {
 
@@ -31,8 +33,15 @@ class MainActivity : AppCompatActivity() {
         binding.fab.setOnClickListener {}
 
         val recyclerView = binding.recyclerView
-        val userDataList = listOf(UserData("alex", 18), UserData("barry", 22))
-        recyclerView.adapter = ItemAdapter(this, userDataList)
+        val userDataList: List<UserData> = listOf(UserData(name = "alex", age = 18), UserData("barry", 22))
+        val itemAdapter = ItemAdapter(userDataList, {clickToDetailActivity(it)})
+        recyclerView.adapter = itemAdapter
+    }
+
+    private fun clickToDetailActivity (position: Int) {
+        val namePlant: String = "Grass"
+        val intent = Intent(this, DetailActivity::class.java).putExtra(namePlant, position)
+        startActivity(intent)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
