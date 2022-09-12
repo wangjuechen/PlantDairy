@@ -1,9 +1,10 @@
-package com.jc.android.plantdairy
+package com.jc.android.ui.adapter
 
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import androidx.recyclerview.widget.RecyclerView
+import com.jc.android.plantdairy.R
 
 
 class PlantAdapter(val plantList: List<String>) : RecyclerView.Adapter<PlantViewHolder>() {

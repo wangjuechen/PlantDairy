@@ -9,10 +9,10 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
-import com.jc.android.plantdairy.PlantAdapter
-import com.jc.android.plantdairy.PlantClickListener
 import com.jc.android.plantdairy.R
 import com.jc.android.plantdairy.databinding.ActivityMainBinding
+import com.jc.android.ui.adapter.PlantAdapter
+import com.jc.android.ui.adapter.PlantClickListener
 
 class MainActivity : AppCompatActivity(), PlantClickListener {
 
