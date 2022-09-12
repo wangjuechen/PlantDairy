@@ -1,5 +1,6 @@
-package com.jc.android.plantdairy
+package com.jc.android.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
@@ -8,9 +9,12 @@ import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
 import androidx.navigation.ui.setupActionBarWithNavController
+import com.jc.android.plantdairy.PlantAdapter
+import com.jc.android.plantdairy.PlantClickListener
+import com.jc.android.plantdairy.R
 import com.jc.android.plantdairy.databinding.ActivityMainBinding
 
-class MainActivity : AppCompatActivity() {
+class MainActivity : AppCompatActivity(), PlantClickListener {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
@@ -27,7 +31,16 @@ class MainActivity : AppCompatActivity() {
         appBarConfiguration = AppBarConfiguration(navController.graph)
         setupActionBarWithNavController(navController, appBarConfiguration)
 
-        binding.fab.setOnClickListener {}
+        val plantAdapter = PlantAdapter(
+            plantList = listOf("Monstera, Halfmoon, Mia")
+        )
+        plantAdapter.plantClickListener = this
+        binding.recyclerView.adapter = plantAdapter
+    }
+
+    private fun openDetailPage(plant: String) {
+        val intent = Intent(this, DetailActivity::class.java)
+        startActivity(intent)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
@@ -50,5 +63,9 @@ class MainActivity : AppCompatActivity() {
         val navController = findNavController(R.id.nav_host_fragment_content_main)
         return navController.navigateUp(appBarConfiguration)
                 || super.onSupportNavigateUp()
+    }
+
+    override fun onClickPlant(plant: String) {
+        openDetailPage(plant)
     }
 }
