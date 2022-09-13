@@ -27,7 +27,7 @@ class ItemAdapter(
         return ItemViewHolder(adapterLayout)
     }
 
-    //position for all recycleview size
+    //position for all recyclerview size
     override fun onBindViewHolder(holder: ItemViewHolder, position: Int) {
         val userdata = dataset[position]
         holder.textView.text = userdata.name
