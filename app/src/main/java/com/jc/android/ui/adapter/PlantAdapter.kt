@@ -3,6 +3,7 @@ package com.jc.android.ui.adapter
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.jc.android.plantdairy.R
 
@@ -20,6 +21,7 @@ class PlantAdapter(val plantList: List<String>) : RecyclerView.Adapter<PlantView
         holder.openButton.setOnClickListener {
             plantClickListener?.onClickPlant(plant)
         }
+        holder.nameTextView.text = plant
     }
 
     override fun getItemCount(): Int {
@@ -33,5 +35,5 @@ interface PlantClickListener {
 
 class PlantViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val openButton: Button = itemView.findViewById(R.id.button_plant)
-
+    val nameTextView: TextView = itemView.findViewById(R.id.textview_plant)
 }
