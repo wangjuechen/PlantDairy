@@ -21,12 +21,9 @@ class ListViewModal : ViewModel() {
 
     private fun getMarsPhotos() {
         viewModelScope.launch {
-            try {
-                val listResult = MarsApi.retrofitService.getPhotos()
-                _status.value = "Success: ${listResult.size} Mars photos retrieved"
-            } catch (e: Exception) {
-                _status.value = "Failure: ${e.message}"
-            }
+            // We should call this on background thread
+            val listResult = MarsApi.retrofitService.getPhotos()
+            _status.value = "Success: ${listResult.size} Mars photos retrieved"
         }
     }
 }
