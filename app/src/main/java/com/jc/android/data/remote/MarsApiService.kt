@@ -1,6 +1,6 @@
 package com.jc.android.network
 
-import com.jc.android.model.MarsPhoto
+import com.jc.android.data.model.MarsPhoto
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit

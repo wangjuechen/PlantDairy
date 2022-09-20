@@ -1,4 +1,4 @@
-package com.jc.android.remote
+package com.jc.android.utils
 
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient
