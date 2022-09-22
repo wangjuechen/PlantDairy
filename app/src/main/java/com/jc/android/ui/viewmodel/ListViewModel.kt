@@ -7,7 +7,7 @@ import androidx.lifecycle.viewModelScope
 import com.jc.android.network.MarsApi
 import kotlinx.coroutines.launch
 
-class ListViewModal : ViewModel() {
+class ListViewModel : ViewModel() {
 
     // The internal MutableLiveData that stores the status of the most recent request
     private val _status = MutableLiveData<String>()
