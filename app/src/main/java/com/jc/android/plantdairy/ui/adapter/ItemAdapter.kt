@@ -1,4 +1,4 @@
-package com.jc.android.plantdairy.adapter
+package com.jc.android.plantdairy.ui.adapter
 
 import android.view.LayoutInflater
 import android.view.View
@@ -7,7 +7,6 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.jc.android.plantdairy.R
-import com.jc.android.plantdairy.UserData
 
 class ItemAdapter(
     private val dataset: List<UserData>,

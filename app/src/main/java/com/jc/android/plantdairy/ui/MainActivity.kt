@@ -1,4 +1,4 @@
-package com.jc.android.plantdairy
+package com.jc.android.plantdairy.ui
 
 import android.content.Intent
 import android.os.Bundle
@@ -8,10 +8,9 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
-import com.jc.android.plantdairy.adapter.ItemAdapter
+import com.jc.android.plantdairy.R
+import com.jc.android.plantdairy.ui.adapter.ItemAdapter
 import com.jc.android.plantdairy.databinding.ActivityMainBinding
-import java.text.FieldPosition
 
 class MainActivity : AppCompatActivity() {
 
