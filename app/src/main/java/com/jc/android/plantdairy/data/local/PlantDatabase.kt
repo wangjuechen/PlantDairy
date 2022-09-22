@@ -4,7 +4,7 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.jc.android.plantdairy.data.Dao.PlantDao
+import com.jc.android.plantdairy.data.local.dao.PlantDao
 
 
 @Database(
@@ -18,6 +18,7 @@ abstract class PlantDatabase : RoomDatabase() {
     companion object {
         @Volatile
         private var INSTANCE: PlantDatabase? = null
+
         fun getDatabase(context: Context): PlantDatabase {
             return INSTANCE ?: synchronized(this) {
                 val instance = Room.databaseBuilder(
@@ -32,5 +33,4 @@ abstract class PlantDatabase : RoomDatabase() {
             }
         }
     }
-
 }

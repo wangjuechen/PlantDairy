@@ -1,5 +1,6 @@
 package com.jc.android.plantdairy.API
 
+import com.jc.android.plantdairy.model.PlantList
 import com.squareup.moshi.Moshi
 import com.squareup.moshi.kotlin.reflect.KotlinJsonAdapterFactory
 import retrofit2.Retrofit
@@ -21,7 +22,7 @@ private val retrofit = Retrofit.Builder()
 
 interface MarsApiService {
     @GET("photos")
-    suspend fun getPhotos() : List<MarsPhoto>
+    suspend fun getPhotos() : List<PlantList>
 }
 
 

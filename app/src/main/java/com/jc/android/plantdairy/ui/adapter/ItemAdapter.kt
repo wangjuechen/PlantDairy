@@ -7,9 +7,10 @@ import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.jc.android.plantdairy.R
+import com.jc.android.plantdairy.model.PlantList
 
 class ItemAdapter(
-    private val dataset: List<UserData>,
+    private val dataset: List<PlantList>,
     private val clickToDetailActivityInAdapter: (Int) -> Unit
     ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>(){
 
