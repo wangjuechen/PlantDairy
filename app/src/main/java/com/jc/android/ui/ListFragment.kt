@@ -10,11 +10,8 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.jc.android.plantdairy.databinding.FragmentFirstBinding
 import com.jc.android.ui.adapter.PlantAdapter
 import com.jc.android.ui.adapter.PlantClickListener
-import com.jc.android.ui.viewmodel.ListViewModel
 
 class ListFragment : Fragment(), PlantClickListener {
-
-    private var listViewModel: ListViewModel? = null
 
     private var _binding: FragmentFirstBinding? = null
 

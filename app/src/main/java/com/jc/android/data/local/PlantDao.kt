@@ -6,7 +6,6 @@ import com.jc.android.data.model.Plant
 
 @Dao
 interface PlantDao {
-
     @Query("SELECT * FROM Plants")
-    fun getPlants(): List<Plant>
+    suspend fun getPlants(): List<Plant>
 }

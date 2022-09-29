@@ -4,26 +4,27 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jc.android.network.MarsApi
+import com.jc.android.data.PlantRepository
+import com.jc.android.data.model.MarsPhoto
+import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
+import javax.inject.Inject
 
-class ListViewModel : ViewModel() {
+@HiltViewModel
+class ListViewModel @Inject constructor(
+    private val repository: PlantRepository
+): ViewModel() {
 
-    // The internal MutableLiveData that stores the status of the most recent request
-    private val _status = MutableLiveData<String>()
-
-    // The external immutable LiveData for the request status
-    val status: LiveData<String> = _status
+    private val _plantListLiveData = MutableLiveData<List<MarsPhoto>>()
+    val plantListLiveData: LiveData<List<MarsPhoto>> = _plantListLiveData
 
     init {
-        getMarsPhotos()
+        getPlants()
     }
 
-    private fun getMarsPhotos() {
+    private fun getPlants() {
         viewModelScope.launch {
-            // We should call this on background thread
-            val listResult = MarsApi.retrofitService.getPhotos()
-            _status.value = "Success: ${listResult.size} Mars photos retrieved"
+            _plantListLiveData.value = repository.getPlants()
         }
     }
 }
