@@ -11,6 +11,7 @@ import androidx.navigation.ui.navigateUp
 import com.jc.android.plantdairy.R
 import com.jc.android.plantdairy.ui.adapter.ItemAdapter
 import com.jc.android.plantdairy.databinding.ActivityMainBinding
+import com.jc.android.plantdairy.model.Plant
 
 class MainActivity : AppCompatActivity() {
 
@@ -32,8 +33,8 @@ class MainActivity : AppCompatActivity() {
         binding.fab.setOnClickListener {}
 
         val recyclerView = binding.recyclerView
-        val userDataList: List<UserData> = listOf(UserData(name = "alex", age = 18), UserData("barry", 22))
-        val itemAdapter = ItemAdapter(userDataList, {clickToDetailActivity(it)})
+        val plantList: List<Plant> = listOf(Plant(id = "1", name = "Grass", plantClass = "1"))
+        val itemAdapter = ItemAdapter(plantList, {clickToDetailActivity(it)})
         recyclerView.adapter = itemAdapter
     }
 

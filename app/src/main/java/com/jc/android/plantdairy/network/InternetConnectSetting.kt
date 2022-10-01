@@ -5,20 +5,23 @@ import okhttp3.OkHttpClient
 import java.util.concurrent.TimeUnit
 
 class InternetConnectSetting {
-    fun getClientSetting(): OkHttpClient {
-                        val request = Interceptor { chain ->
-                            val request = chain.request()
-                            request.headers.toString()
-                            chain.proceed(request)
-                        }
+    companion object{
+        fun getClientSetting(): OkHttpClient {
 
-                        val builder = OkHttpClient.Builder()
+            val request = Interceptor { chain ->
+                val request = chain.request()
+                request.headers.toString()
+                chain.proceed(request)
+            }
 
-                        return builder
-                            .readTimeout(60, TimeUnit.SECONDS)
-                            .writeTimeout(60, TimeUnit.SECONDS)
-                            .connectTimeout(60, TimeUnit.SECONDS)
-                            .addInterceptor(request)
-                            .build()
-                    }
+            val builder = OkHttpClient.Builder()
+
+            return builder
+                .readTimeout(60, TimeUnit.SECONDS)
+                .writeTimeout(60, TimeUnit.SECONDS)
+                .connectTimeout(60, TimeUnit.SECONDS)
+                .addInterceptor(request)
+                .build()
+        }
+    }
 }
