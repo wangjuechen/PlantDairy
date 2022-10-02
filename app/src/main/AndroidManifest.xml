@@ -26,11 +26,6 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name="com.jc.android.ui.DetailActivity"
-            android:exported="true"
-            android:label="DetailActivity"
-            android:theme="@style/Theme.PlantDairy.NoActionBar" />
     </application>
 
     <uses-permission android:name="android.permission.INTERNET"/>

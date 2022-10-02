@@ -1,17 +1,20 @@
 package com.jc.android.ui
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
+import androidx.fragment.app.viewModels
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jc.android.plantdairy.databinding.FragmentFirstBinding
 import com.jc.android.ui.adapter.PlantAdapter
 import com.jc.android.ui.adapter.PlantClickListener
+import com.jc.android.ui.viewmodel.ListViewModel
 
 class ListFragment : Fragment(), PlantClickListener {
+
+    private val listViewModel: ListViewModel by viewModels()
 
     private var _binding: FragmentFirstBinding? = null
 
@@ -30,12 +33,15 @@ class ListFragment : Fragment(), PlantClickListener {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
-        val plantAdapter = PlantAdapter(
-            plantList = listOf("Monstera", "Halfmoon", "Mia")
-        )
+        val plantAdapter = PlantAdapter()
+
         plantAdapter.plantClickListener = this
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = plantAdapter
+
+        listViewModel.plantListLiveData.observe(viewLifecycleOwner) {
+            plantAdapter.updatePlantList(it)
+        }
     }
 
     override fun onDestroyView() {
@@ -44,11 +50,6 @@ class ListFragment : Fragment(), PlantClickListener {
     }
 
     override fun onClickPlant(plant: String) {
-        openDetailPage(plant)
-    }
-
-    private fun openDetailPage(plant: String) {
-        val intent = Intent(activity, DetailActivity::class.java)
-        activity?.startActivity(intent)
+//        openDetailPage(plant)
     }
 }

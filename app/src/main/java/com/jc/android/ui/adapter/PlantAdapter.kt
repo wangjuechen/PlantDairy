@@ -5,10 +5,12 @@ import android.view.ViewGroup
 import android.widget.Button
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.jc.android.data.model.MarsPhoto
 import com.jc.android.plantdairy.R
 
 
-class PlantAdapter(val plantList: List<String>) : RecyclerView.Adapter<PlantViewHolder>() {
+class PlantAdapter(var marsPhotos: List<MarsPhoto> = emptyList()) :
+    RecyclerView.Adapter<PlantViewHolder>() {
 
     var plantClickListener: PlantClickListener? = null
 
@@ -17,15 +19,21 @@ class PlantAdapter(val plantList: List<String>) : RecyclerView.Adapter<PlantView
     }
 
     override fun onBindViewHolder(holder: PlantViewHolder, position: Int) {
-        val plant = plantList[position]
+        val marsPhoto = marsPhotos[position]
         holder.openButton.setOnClickListener {
-            plantClickListener?.onClickPlant(plant)
+            plantClickListener?.onClickPlant(marsPhoto.id)
         }
-        holder.nameTextView.text = plant
+        holder.nameTextView.text = marsPhoto.id
     }
 
     override fun getItemCount(): Int {
-       return plantList.size
+        return marsPhotos.size
+    }
+
+    fun updatePlantList(marsPhotos: List<MarsPhoto>?) {
+        this.marsPhotos = marsPhotos ?: emptyList()
+
+        notifyDataSetChanged()
     }
 }
 
