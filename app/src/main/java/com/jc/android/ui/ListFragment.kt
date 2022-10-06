@@ -6,8 +6,10 @@ import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
+import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
-import com.jc.android.plantdairy.databinding.FragmentFirstBinding
+import com.jc.android.plantdairy.R
+import com.jc.android.plantdairy.databinding.FragmentListBinding
 import com.jc.android.ui.adapter.PlantAdapter
 import com.jc.android.ui.adapter.PlantClickListener
 import com.jc.android.ui.viewmodel.ListViewModel
@@ -16,7 +18,7 @@ class ListFragment : Fragment(), PlantClickListener {
 
     private val listViewModel: ListViewModel by viewModels()
 
-    private var _binding: FragmentFirstBinding? = null
+    private var _binding: FragmentListBinding? = null
 
     // This property is only valid between onCreateView and
     // onDestroyView.
@@ -26,7 +28,7 @@ class ListFragment : Fragment(), PlantClickListener {
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        _binding = FragmentListBinding.inflate(inflater, container, false)
         return binding.root
     }
 
@@ -49,7 +51,9 @@ class ListFragment : Fragment(), PlantClickListener {
         _binding = null
     }
 
-    override fun onClickPlant(plant: String) {
-//        openDetailPage(plant)
+    override fun onClickPlant(marsPhotoId: String) {
+        Navigation.findNavController(binding.root).navigate(R.id.action_ListFragment_to_DetailFragment, Bundle().apply {
+            putString("marsPhotoId", marsPhotoId)
+        })
     }
 }

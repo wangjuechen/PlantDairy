@@ -9,7 +9,7 @@
         android:id="@+id/ListFragment"
         android:name="com.jc.android.ui.ListFragment"
         android:label="@string/list_fragment_label"
-        tools:layout="@layout/fragment_first">
+        tools:layout="@layout/fragment_list">
         <action
             android:id="@+id/action_ListFragment_to_DetailFragment"
             app:destination="@id/DetailFragment" />
@@ -18,6 +18,6 @@
     <fragment
         android:id="@+id/DetailFragment"
         android:name="com.jc.android.ui.DetailFragment"
-        tools:layout="@layout/fragment_second"/>
+        tools:layout="@layout/fragment_detail"/>
 
 </navigation>

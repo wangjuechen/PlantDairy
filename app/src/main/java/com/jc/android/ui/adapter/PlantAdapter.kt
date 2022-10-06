@@ -3,8 +3,10 @@ package com.jc.android.ui.adapter
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
+import com.bumptech.glide.Glide
 import com.jc.android.data.model.MarsPhoto
 import com.jc.android.plantdairy.R
 
@@ -24,6 +26,10 @@ class PlantAdapter(var marsPhotos: List<MarsPhoto> = emptyList()) :
             plantClickListener?.onClickPlant(marsPhoto.id)
         }
         holder.nameTextView.text = marsPhoto.id
+
+        Glide.with(holder.itemView.context)
+            .load(marsPhoto.imgSrcUrl)
+            .into(holder.photoImageView)
     }
 
     override fun getItemCount(): Int {
@@ -38,10 +44,11 @@ class PlantAdapter(var marsPhotos: List<MarsPhoto> = emptyList()) :
 }
 
 interface PlantClickListener {
-    fun onClickPlant(plant: String)
+    fun onClickPlant(marsPhotoId: String)
 }
 
 class PlantViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
     val openButton: Button = itemView.findViewById(R.id.button_plant)
     val nameTextView: TextView = itemView.findViewById(R.id.textview_plant)
+    val photoImageView: ImageView = itemView.findViewById(R.id.imageview_plant)
 }
