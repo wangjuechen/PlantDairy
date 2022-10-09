@@ -1,8 +1,8 @@
-package com.jc.android.data
+package com.jc.android.plantdairy.data
 
-import com.jc.android.data.local.MarsPhotoDao
-import com.jc.android.data.model.MarsPhoto
-import com.jc.android.data.remote.MarsApiService
+import com.jc.android.plantdairy.data.local.MarsPhotoDao
+import com.jc.android.plantdairy.data.model.MarsPhoto
+import com.jc.android.plantdairy.data.remote.MarsApiService
 import javax.inject.Inject
 
 

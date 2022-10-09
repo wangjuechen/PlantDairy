@@ -1,8 +1,8 @@
-package com.jc.android.di.module
+package com.jc.android.plantdairy.di.module
 
-import com.jc.android.data.remote.BASE_URL
-import com.jc.android.data.remote.MarsApiService
-import com.jc.android.utils.BaseApiServiceSetting
+import com.jc.android.plantdairy.data.remote.BASE_URL
+import com.jc.android.plantdairy.data.remote.MarsApiService
+import com.jc.android.plantdairy.utils.BaseApiServiceSetting
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

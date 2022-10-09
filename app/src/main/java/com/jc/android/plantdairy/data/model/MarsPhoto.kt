@@ -1,4 +1,4 @@
-package com.jc.android.data.model
+package com.jc.android.plantdairy.data.model
 
 import androidx.room.Entity
 import androidx.room.PrimaryKey

@@ -1,11 +1,11 @@
-package com.jc.android.ui.viewmodel
+package com.jc.android.plantdairy.ui.viewmodel
 
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
-import com.jc.android.data.PlantRepository
-import com.jc.android.data.model.MarsPhoto
+import com.jc.android.plantdairy.data.PlantRepository
+import com.jc.android.plantdairy.data.model.MarsPhoto
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject

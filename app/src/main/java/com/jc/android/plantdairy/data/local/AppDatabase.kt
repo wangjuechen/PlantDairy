@@ -1,11 +1,11 @@
-package com.jc.android.data.local
+package com.jc.android.plantdairy.data.local
 
 import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.jc.android.data.model.MarsPhoto
-import com.jc.android.data.model.Plant
+import com.jc.android.plantdairy.data.model.MarsPhoto
+import com.jc.android.plantdairy.data.model.Plant
 
 @Database(
     entities = [Plant::class, MarsPhoto::class],

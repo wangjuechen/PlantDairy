@@ -1,4 +1,4 @@
-package com.jc.android.di
+package com.jc.android.plantdairy.di
 
 import android.app.Application
 import dagger.hilt.android.HiltAndroidApp

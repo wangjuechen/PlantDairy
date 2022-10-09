@@ -1,4 +1,4 @@
-package com.jc.android.ui
+package com.jc.android.plantdairy.ui
 
 import android.os.Bundle
 import android.view.Menu

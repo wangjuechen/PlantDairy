@@ -1,6 +1,6 @@
-package com.jc.android.data.remote
+package com.jc.android.plantdairy.data.remote
 
-import com.jc.android.data.model.MarsPhoto
+import com.jc.android.plantdairy.data.model.MarsPhoto
 import retrofit2.http.GET
 
 const val BASE_URL =

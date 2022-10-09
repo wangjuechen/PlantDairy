@@ -1,4 +1,4 @@
-package com.jc.android.ui.adapter
+package com.jc.android.plantdairy.ui.adapter
 
 import android.view.View
 import android.view.ViewGroup
@@ -7,8 +7,8 @@ import android.widget.ImageView
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
-import com.jc.android.data.model.MarsPhoto
 import com.jc.android.plantdairy.R
+import com.jc.android.plantdairy.data.model.MarsPhoto
 
 
 class PlantAdapter(var marsPhotos: List<MarsPhoto> = emptyList()) :

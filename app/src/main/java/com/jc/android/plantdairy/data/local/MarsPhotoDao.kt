@@ -1,10 +1,10 @@
-package com.jc.android.data.local
+package com.jc.android.plantdairy.data.local
 
 import androidx.room.Dao
 import androidx.room.Insert
 import androidx.room.OnConflictStrategy
 import androidx.room.Query
-import com.jc.android.data.model.MarsPhoto
+import com.jc.android.plantdairy.data.model.MarsPhoto
 
 @Dao
 interface MarsPhotoDao {
