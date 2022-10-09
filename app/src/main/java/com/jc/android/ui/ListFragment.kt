@@ -13,7 +13,9 @@ import com.jc.android.plantdairy.databinding.FragmentListBinding
 import com.jc.android.ui.adapter.PlantAdapter
 import com.jc.android.ui.adapter.PlantClickListener
 import com.jc.android.ui.viewmodel.ListViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ListFragment : Fragment(), PlantClickListener {
 
     private val listViewModel: ListViewModel by viewModels()
