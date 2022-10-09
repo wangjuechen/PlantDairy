@@ -10,9 +10,10 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jc.android.plantdairy.R
 import com.jc.android.plantdairy.databinding.FragmentListBinding
-import com.jc.android.plantdairy.ui.adapter.ItemAdapter
+import com.jc.android.plantdairy.ui.adapter.PlantAdapter
 import com.jc.android.plantdairy.ui.adapter.PlantClickListener
-import com.jc.android.plantdairy.ui.viewmodel.PlantViewModel
+import com.jc.android.plantdairy.ui.viewmodel.ListViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
 class ListFragment : Fragment(), PlantClickListener {
 
