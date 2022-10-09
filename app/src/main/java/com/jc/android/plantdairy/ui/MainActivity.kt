@@ -1,10 +1,5 @@
-<<<<<<<< HEAD:app/src/main/java/com/jc/android/plantdairy/ui/MainActivity.kt
 package com.jc.android.plantdairy.ui
-========
-package com.jc.android.ui
->>>>>>>> feature/adds_plant_list:app/src/main/java/com/jc/android/ui/MainActivity.kt
 
-import android.content.Intent
 import android.os.Bundle
 import android.view.Menu
 import android.view.MenuItem
