@@ -7,19 +7,18 @@
 
     <fragment
         android:id="@+id/ListFragment"
-        android:name="com.jc.android.plantdairy.ui.ListFragment"
-        android:label="@string/first_fragment_label"
+        android:name="com.jc.android.ui.ListFragment"
+        android:label="@string/list_fragment_label"
         tools:layout="@layout/fragment_list">
-
         <action
             android:id="@+id/action_ListFragment_to_DetailFragment"
             app:destination="@id/DetailFragment" />
     </fragment>
+
     <fragment
         android:id="@+id/DetailFragment"
         android:name="com.jc.android.plantdairy.ui.DetailFragment"
         android:label="@string/second_fragment_label"
         tools:layout="@layout/fragment_detail">
 
-    </fragment>
 </navigation>
