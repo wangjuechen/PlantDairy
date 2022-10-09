@@ -5,37 +5,31 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.Fragment
-import androidx.navigation.fragment.findNavController
-import com.jc.android.plantdairy.R
-import com.jc.android.plantdairy.databinding.FragmentFirstBinding
+import androidx.fragment.app.viewModels
+import com.jc.android.plantdairy.databinding.FragmentDetailBinding
+import com.jc.android.plantdairy.ui.viewmodel.DetailViewModel
 
-/**
- * A simple [Fragment] subclass as the default destination in the navigation.
- */
-class FirstFragment : Fragment() {
+class DetailFragment : Fragment() {
 
-    private var _binding: FragmentFirstBinding? = null
-
-    // This property is only valid between onCreateView and
-    // onDestroyView.
+    private val detailViewModel: DetailViewModel by viewModels()
+    private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
+
+    var id: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View? {
-
-        _binding = FragmentFirstBinding.inflate(inflater, container, false)
+        _binding = FragmentDetailBinding.inflate(inflater, container, false)
         return binding.root
-
     }
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        id = arguments?.getString("plantId") ?: ""
 
-        binding.buttonFirst.setOnClickListener {
-            findNavController().navigate(R.id.action_FirstFragment_to_SecondFragment)
-        }
+        detailViewModel.getPlant(id)
     }
 
     override fun onDestroyView() {

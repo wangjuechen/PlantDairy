@@ -8,11 +8,12 @@ import androidx.appcompat.app.AppCompatActivity
 import androidx.navigation.findNavController
 import androidx.navigation.ui.AppBarConfiguration
 import androidx.navigation.ui.navigateUp
+import androidx.navigation.ui.setupActionBarWithNavController
 import com.jc.android.plantdairy.R
-import com.jc.android.plantdairy.ui.adapter.ItemAdapter
 import com.jc.android.plantdairy.databinding.ActivityMainBinding
-import com.jc.android.plantdairy.model.Plant
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class MainActivity : AppCompatActivity() {
 
     private lateinit var appBarConfiguration: AppBarConfiguration
@@ -23,25 +24,11 @@ class MainActivity : AppCompatActivity() {
 
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
-
         setSupportActionBar(binding.toolbar)
 
-//        val navController = findNavController(R.id.nav_host_fragment_content_main)
-//        appBarConfiguration = AppBarConfiguration(navController.graph)
-//        setupActionBarWithNavController(navController, appBarConfiguration)
-
-        binding.fab.setOnClickListener {}
-
-        val recyclerView = binding.recyclerView
-        val plantList: List<Plant> = listOf(Plant(id = "1", name = "Grass", plantClass = "1"))
-        val itemAdapter = ItemAdapter(plantList, {clickToDetailActivity(it)})
-        recyclerView.adapter = itemAdapter
-    }
-
-    private fun clickToDetailActivity (position: Int) {
-        val namePlant: String = "Grass"
-        val intent = Intent(this, DetailActivity::class.java).putExtra(namePlant, position)
-        startActivity(intent)
+        val navController = findNavController(R.id.nav_host_fragment_content_main)
+        appBarConfiguration = AppBarConfiguration(navController.graph)
+        setupActionBarWithNavController(navController, appBarConfiguration)
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {

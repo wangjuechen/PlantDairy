@@ -5,7 +5,8 @@ import androidx.room.PrimaryKey
 
 @Entity(tableName = "Plants")
 data class Plant(
-    @PrimaryKey val id: String,
+    @PrimaryKey(autoGenerate = true) val id: String,
     val name: String,
-    val plantClass: String
+    val plantClass: String,
+    val plantImage: String
 )

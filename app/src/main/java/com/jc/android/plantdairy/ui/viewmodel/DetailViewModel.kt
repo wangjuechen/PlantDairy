@@ -7,29 +7,27 @@ import androidx.lifecycle.viewModelScope
 import com.jc.android.plantdairy.data.PlantRepository
 import com.jc.android.plantdairy.model.Plant
 import dagger.hilt.android.lifecycle.HiltViewModel
-
-
 import kotlinx.coroutines.launch
 import javax.inject.Inject
 
 @HiltViewModel
-class PlantViewModel @Inject constructor(
+class DetailViewModel @Inject constructor(
     private val repository: PlantRepository
 ) : ViewModel() {
 
-    // The internal MutableLiveData that stores the status of the most recent request
-    private val _plantListLiveData = MutableLiveData<List<Plant>>()
+//    var plantId : String = ""
+
+    private val _plantLiveData = MutableLiveData<Plant>()
 
     // The external immutable LiveData for the request status
-    val plantListLiveData: LiveData<List<Plant>> = _plantListLiveData
+    val plantLiveData: LiveData<Plant> = _plantLiveData
 
-    init {
-        getPlants()
-    }
-
-    private fun getPlants() {
+    fun getPlant(plantId: String) {
         viewModelScope.launch {
-            _plantListLiveData.value = repository.getPlants()
+            _plantLiveData.value = repository.getPlant(plantId)
         }
     }
+//    fun savePlantId(id: String) {
+//        plantId = id
+//    }
 }

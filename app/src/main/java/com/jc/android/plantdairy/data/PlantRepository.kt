@@ -10,8 +10,8 @@ class PlantRepository
     private val plantDao: PlantDao,
     private val marsApiService : MarsApiService) {
 
-    suspend fun getPlant() : List<Plant> {
-        val localData = plantDao.getPlant()
+    suspend fun getPlants() : List<Plant> {
+        val localData = plantDao.getPlants()
         if (localData.isNotEmpty()){
             return localData
         }
@@ -20,6 +20,9 @@ class PlantRepository
         plantDao.insertAll(remoteData)
 
         return remoteData
+    }
 
+    suspend fun getPlant(id : String) : Plant {
+        return plantDao.getPlant(id)
     }
 }
