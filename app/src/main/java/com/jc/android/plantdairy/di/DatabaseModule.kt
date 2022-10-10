@@ -1,7 +1,7 @@
-package com.jc.android.plantdairy.di.module
+package com.jc.android.plantdairy.di
 
 import android.content.Context
-import com.jc.android.plantdairy.data.local.AppDatabase
+import com.jc.android.plantdairy.data.local.PlantDatabase
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn

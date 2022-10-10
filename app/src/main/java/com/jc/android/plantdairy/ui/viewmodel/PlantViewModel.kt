@@ -5,7 +5,6 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jc.android.plantdairy.data.PlantRepository
-import com.jc.android.plantdairy.model.Plant
 import com.jc.android.plantdairy.data.model.MarsPhoto
 import dagger.hilt.android.lifecycle.HiltViewModel
 
@@ -19,10 +18,10 @@ class PlantViewModel @Inject constructor(
 ) : ViewModel() {
 
     // The internal MutableLiveData that stores the status of the most recent request
-    private val _plantListLiveData = MutableLiveData<List<Plant>>()
+    private val _plantListLiveData = MutableLiveData<List<MarsPhoto>>()
 
     // The external immutable LiveData for the request status
-    val plantListLiveData: LiveData<List<Plant>> = _plantListLiveData
+    val plantListLiveData: LiveData<List<MarsPhoto>> = _plantListLiveData
 
     init {
         getPlants()

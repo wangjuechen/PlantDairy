@@ -10,11 +10,12 @@ import androidx.navigation.Navigation
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.jc.android.plantdairy.R
 import com.jc.android.plantdairy.databinding.FragmentListBinding
-import com.jc.android.plantdairy.ui.adapter.PlantAdapter
+import com.jc.android.plantdairy.ui.adapter.ItemAdapter
 import com.jc.android.plantdairy.ui.adapter.PlantClickListener
-import com.jc.android.plantdairy.ui.viewmodel.ListViewModel
+import com.jc.android.plantdairy.ui.viewmodel.PlantViewModel
 import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class ListFragment : Fragment(), PlantClickListener {
 
     private val listViewModel: PlantViewModel by viewModels()
@@ -38,6 +39,7 @@ class ListFragment : Fragment(), PlantClickListener {
 
         val plantAdapter = ItemAdapter()
 
+        plantAdapter.plantClickListener = this
         binding.recyclerView.layoutManager = LinearLayoutManager(requireContext())
         binding.recyclerView.adapter = plantAdapter
 

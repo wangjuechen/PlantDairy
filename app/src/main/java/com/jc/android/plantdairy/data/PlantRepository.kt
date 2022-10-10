@@ -1,16 +1,17 @@
 package com.jc.android.plantdairy.data
 
-import com.jc.android.plantdairy.API.MarsApiService
-import com.jc.android.plantdairy.data.local.dao.PlantDao
-import com.jc.android.plantdairy.model.Plant
+import com.jc.android.plantdairy.data.local.dao.MarsPhotoDao
+import com.jc.android.plantdairy.data.remote.MarsApiService
+import com.jc.android.plantdairy.data.model.MarsPhoto
 import javax.inject.Inject
 
 class PlantRepository
 @Inject constructor(
-    private val plantDao: PlantDao,
-    private val marsApiService : MarsApiService) {
+    private val plantDao: MarsPhotoDao,
+    private val marsApiService : MarsApiService
+) {
 
-    suspend fun getPlants() : List<Plant> {
+    suspend fun getPlants() : List<MarsPhoto> {
         val localData = plantDao.getPlants()
         if (localData.isNotEmpty()){
             return localData
@@ -22,7 +23,7 @@ class PlantRepository
         return remoteData
     }
 
-    suspend fun getPlant(id : String) : Plant {
+    suspend fun getPlant(id : String) : MarsPhoto {
         return plantDao.getPlant(id)
     }
 }

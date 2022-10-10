@@ -1,4 +1,4 @@
-package com.jc.android.plantdairy.network
+package com.jc.android.plantdairy.utils
 
 import okhttp3.Interceptor
 import okhttp3.OkHttpClient

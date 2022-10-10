@@ -4,17 +4,17 @@ import android.content.Context
 import androidx.room.Database
 import androidx.room.Room
 import androidx.room.RoomDatabase
-import com.jc.android.plantdairy.data.local.dao.PlantDao
-import com.jc.android.plantdairy.model.Plant
+import com.jc.android.plantdairy.data.local.dao.MarsPhotoDao
+import com.jc.android.plantdairy.data.model.MarsPhoto
 
 
 @Database(
-    entities = [Plant::class],
-    version = 1,
+    entities = [MarsPhoto::class],
+    version = 3,
     exportSchema = false
 )
 abstract class PlantDatabase : RoomDatabase() {
-    abstract fun getPlantDao() : PlantDao
+    abstract fun getPlantDao() : MarsPhotoDao
 
     companion object {
         fun getDatabase(context: Context): PlantDatabase {

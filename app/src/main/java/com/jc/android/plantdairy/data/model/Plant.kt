@@ -1,11 +1,15 @@
-package com.jc.android.plantdairy.data.model
-
-import androidx.room.Entity
-import androidx.room.PrimaryKey
-
-@Entity(tableName = "Plants")
-data class Plant(
-    @PrimaryKey val id: String,
-    val name: String,
-    val plantType: String
-)
+//package com.jc.android.plantdairy.data.model
+//
+//import androidx.room.Entity
+//import androidx.room.PrimaryKey
+//import com.squareup.moshi.JsonClass
+//
+//@Entity(tableName = "Plants")
+//@JsonClass(generateAdapter = true)
+//data class Plant(
+//    @PrimaryKey(autoGenerate = true)
+//    val id: Int,
+//    val name: String,
+//    val plantType: String,
+//    val plantImage: String
+//)

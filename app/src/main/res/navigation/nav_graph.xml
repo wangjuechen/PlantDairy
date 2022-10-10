@@ -18,7 +18,8 @@
     <fragment
         android:id="@+id/DetailFragment"
         android:name="com.jc.android.plantdairy.ui.DetailFragment"
-        android:label="@string/second_fragment_label"
+        android:label="@string/detail_fragment_label"
         tools:layout="@layout/fragment_detail">
+    </fragment>
 
 </navigation>

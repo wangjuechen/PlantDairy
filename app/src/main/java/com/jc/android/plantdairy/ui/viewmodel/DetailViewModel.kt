@@ -5,7 +5,7 @@ import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
 import com.jc.android.plantdairy.data.PlantRepository
-import com.jc.android.plantdairy.model.Plant
+import com.jc.android.plantdairy.data.model.MarsPhoto
 import dagger.hilt.android.lifecycle.HiltViewModel
 import kotlinx.coroutines.launch
 import javax.inject.Inject
@@ -17,10 +17,10 @@ class DetailViewModel @Inject constructor(
 
 //    var plantId : String = ""
 
-    private val _plantLiveData = MutableLiveData<Plant>()
+    private val _plantLiveData = MutableLiveData<MarsPhoto>()
 
     // The external immutable LiveData for the request status
-    val plantLiveData: LiveData<Plant> = _plantLiveData
+    val plantLiveData: LiveData<MarsPhoto> = _plantLiveData
 
     fun getPlant(plantId: String) {
         viewModelScope.launch {

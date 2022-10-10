@@ -1,8 +1,9 @@
-package com.jc.android.plantdairy.di.module
+package com.jc.android.plantdairy.di
 
 import com.jc.android.plantdairy.data.remote.BASE_URL
 import com.jc.android.plantdairy.data.remote.MarsApiService
-import com.jc.android.plantdairy.utils.BaseApiServiceSetting
+import com.jc.android.plantdairy.data.remote.moshi
+import com.jc.android.plantdairy.utils.InternetConnectSetting
 import dagger.Module
 import dagger.Provides
 import dagger.hilt.InstallIn
@@ -24,7 +25,7 @@ class NetworkModule {
     @Singleton
     fun provideRetrofit(okHttpClient: OkHttpClient) : Retrofit{
         return Retrofit.Builder().client(okHttpClient)
-            .addConverterFactory(MoshiConverterFactory.create())
+            .addConverterFactory(MoshiConverterFactory.create(moshi))
             .baseUrl(BASE_URL)
             .build()
     }

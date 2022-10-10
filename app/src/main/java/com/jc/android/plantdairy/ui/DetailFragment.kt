@@ -8,14 +8,16 @@ import androidx.fragment.app.Fragment
 import androidx.fragment.app.viewModels
 import com.jc.android.plantdairy.databinding.FragmentDetailBinding
 import com.jc.android.plantdairy.ui.viewmodel.DetailViewModel
+import dagger.hilt.android.AndroidEntryPoint
 
+@AndroidEntryPoint
 class DetailFragment : Fragment() {
 
     private val detailViewModel: DetailViewModel by viewModels()
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
 
-    var id: String = ""
+    var id: String? = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,7 +31,7 @@ class DetailFragment : Fragment() {
         super.onViewCreated(view, savedInstanceState)
         id = arguments?.getString("plantId") ?: ""
 
-        detailViewModel.getPlant(id)
+        detailViewModel.getPlant(id!!)
     }
 
     override fun onDestroyView() {

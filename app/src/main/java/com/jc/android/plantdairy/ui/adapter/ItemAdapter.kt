@@ -9,10 +9,10 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.jc.android.plantdairy.R
-import com.jc.android.plantdairy.model.Plant
+import com.jc.android.plantdairy.data.model.MarsPhoto
 
 class ItemAdapter(
-    private var dataset: List<Plant> = emptyList()
+    private var dataset: List<MarsPhoto> = emptyList()
     ) : RecyclerView.Adapter<ItemAdapter.ItemViewHolder>(){
 
     var plantClickListener: PlantClickListener? = null
@@ -34,10 +34,10 @@ class ItemAdapter(
         holder.buttonDetail.setOnClickListener {
             plantClickListener?.onClickPlant(plantItem.id)
         }
-        holder.textView.text = plantItem.name
+        holder.textView.text = plantItem.id
 
         Glide.with(holder.itemView.context)
-            .load(plantItem.plantImage)
+            .load(plantItem.imgSrcUrl)
             .into(holder.photoImageView)
     }
 
@@ -45,7 +45,7 @@ class ItemAdapter(
         return dataset.size
     }
 
-    fun updatePlantList(plants: List<Plant>?) {
+    fun updatePlantList(plants: List<MarsPhoto>?) {
         this.dataset = plants ?: emptyList()
         notifyDataSetChanged()
     }

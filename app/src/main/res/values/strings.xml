@@ -3,6 +3,7 @@
     <string name="action_settings">Settings</string>
     <!-- Strings used for fragments for navigation -->
     <string name="list_fragment_label">Your plants</string>
+    <string name="detail_fragment_label"> </string>
     <string name="next">Next</string>
     <string name="previous">Previous</string>
     <string name="view">View</string>
