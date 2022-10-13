@@ -17,10 +17,10 @@ class ItemAdapter(
 
     var plantClickListener: PlantClickListener? = null
 
-    class ItemViewHolder(private val view: View) : RecyclerView.ViewHolder(view) {
+    class ItemViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val textView: TextView = view.findViewById(R.id.textview_plant)
         val buttonDetail: Button = view.findViewById(R.id.button_plant)
-        val photoImageView: ImageView = itemView.findViewById(R.id.imageview_plant)
+        val photoImageView: ImageView = view.findViewById(R.id.imageview_plant)
 
     }
 

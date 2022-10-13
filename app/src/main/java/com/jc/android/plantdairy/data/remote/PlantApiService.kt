@@ -9,7 +9,7 @@ import retrofit2.http.GET
 const val BASE_URL =
     "https://android-kotlin-fun-mars-server.appspot.com"
 
-val moshi = Moshi.Builder()
+val moshi: Moshi = Moshi.Builder()
     .add(KotlinJsonAdapterFactory())
     .build()
 

@@ -29,7 +29,7 @@ class ListFragment : Fragment(), PlantClickListener {
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
-    ): View? {
+    ): View {
         _binding = FragmentListBinding.inflate(inflater, container, false)
         return binding.root
     }
@@ -55,7 +55,7 @@ class ListFragment : Fragment(), PlantClickListener {
 
     override fun onClickPlant(PlantId: String) {
         Navigation.findNavController(binding.root).navigate(R.id.action_ListFragment_to_DetailFragment, Bundle().apply {
-            putString("plantID", PlantId)
+            putString(KEY_WORD_OF_PLANT_ID, PlantId)
         })
     }
 }
