@@ -17,7 +17,7 @@ class DetailFragment : Fragment() {
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
 
-    var id: String? = ""
+    var plantId: Int = 0
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -29,9 +29,9 @@ class DetailFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
-        id = arguments?.getString("plantId") ?: ""
+        plantId = arguments?.getInt("plantId") ?: 0
 
-        detailViewModel.getPlant(id!!)
+        detailViewModel.getPlant(plantId)
     }
 
     override fun onDestroyView() {

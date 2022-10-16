@@ -53,9 +53,9 @@ class ListFragment : Fragment(), PlantClickListener {
         _binding = null
     }
 
-    override fun onClickPlant(PlantId: String) {
+    override fun onClickPlant(plantId: Int) {
         Navigation.findNavController(binding.root).navigate(R.id.action_ListFragment_to_DetailFragment, Bundle().apply {
-            putString("plantID", PlantId)
+            putInt("plantID", plantId)
         })
     }
 }

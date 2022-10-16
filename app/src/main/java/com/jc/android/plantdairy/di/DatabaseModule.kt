@@ -19,4 +19,8 @@ class DatabaseModule {
     @Provides
     @Singleton
     fun providePlantDao(db: PlantDatabase) = db.getPlantDao()
+
+    @Provides
+    @Singleton
+    fun provideMarsPhotoDao(db: PlantDatabase) = db.getMarsPhotoDao()
 }
