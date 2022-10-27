@@ -16,16 +16,13 @@ object AlarmScheduler {
     }
 
     private fun scheduleAlarm(alarmIntent: PendingIntent?, alarmMgr: AlarmManager) {
-        // 1
         val datetimeToAlarm = Calendar.getInstance(Locale.getDefault())
         datetimeToAlarm.timeInMillis = System.currentTimeMillis()
-        // 2
         alarmMgr.set(AlarmManager.RTC_WAKEUP, datetimeToAlarm.timeInMillis + (1000 * 3), alarmIntent)
     }
 
     private fun createPendingIntent(context: Context): PendingIntent? {
-        val intent = Intent(context.applicationContext, AlarmReceiver::class.java).apply {
-        }
+        val intent = Intent(context.applicationContext, AlarmReceiver::class.java)
         return PendingIntent.getBroadcast(context, 0, intent, PendingIntent.FLAG_UPDATE_CURRENT)
     }
 }

@@ -37,15 +37,7 @@ class MainActivity : AppCompatActivity() {
             NotificationManagerCompat.IMPORTANCE_DEFAULT, false,
             getString(R.string.app_name), "App notification channel.")
 
-        NotificationHelper.createNotificationChannel(this,
-            NotificationManagerCompat.IMPORTANCE_HIGH, true,
-            getString(R.string.app_name), "Notification channel for dogs.")
-
         AlarmScheduler.scheduleAlarmsForReminder(this)
-
-        val datetimeToAlarm = Calendar.getInstance(Locale.getDefault())
-        datetimeToAlarm.timeInMillis = System.currentTimeMillis()
-
     }
 
     override fun onCreateOptionsMenu(menu: Menu): Boolean {
