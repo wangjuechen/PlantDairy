@@ -23,8 +23,7 @@ class DetailFragment : Fragment() {
     private var _binding: FragmentDetailBinding? = null
     private val binding get() = _binding!!
 
-    var id: String = ""
-
+    var plantId: String = ""
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -38,9 +37,9 @@ class DetailFragment : Fragment() {
         val textView: TextView = view.findViewById(R.id.detail_textview_id)
         val photoImageView: ImageView = view.findViewById(R.id.detail_imageview_plant)
         super.onViewCreated(view, savedInstanceState)
-        id = arguments?.getString(KEY_WORD_OF_PLANT_ID) ?: ""
+        plantId = arguments?.getString(KEY_WORD_OF_PLANT_ID) ?: ""
 
-        detailViewModel.getPlant(id)
+        detailViewModel.getPlant(plantId)
 
         detailViewModel.plantLiveData.observe(viewLifecycleOwner) {
             textView.text = it.id
